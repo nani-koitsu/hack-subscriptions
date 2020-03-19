@@ -21,6 +21,7 @@ app.use(cookieParser());
 
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
+app.use('/users', require('./routes/users'));
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
