@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import GoogleSvg from "./google-logo.svg";
-import "./Signin.css";
-class Signin extends Component {
+import "./GoogleSignin.css";
+class GoogleSignin extends Component {
   componentDidMount() {
     console.log("hello");
   }
@@ -17,4 +17,4 @@ class Signin extends Component {
     );
   }
 }
-export default Signin;
+export default GoogleSignin;

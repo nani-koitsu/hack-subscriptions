@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 
 import "./Landing.css";
-import Signin from "../../Google/Signin";
+// import GoogleSignin from "../../Google/GoogleSignin";
 import SubscriptionBox from "../../SubscriptionBox/SubscriptionBox";
 import SignUp from "../../SignUp/SignUp";
 import SignIn from "../../SignIn/SignIn";
+import AccountForm from "../../Forms/AccountForm";
 class Landing extends Component {
   // componentDidMount() {
   //   if (this.props.authUser.isAuthenticated) {
@@ -19,11 +20,10 @@ class Landing extends Component {
           <br />
           Please sign up with your preferred account.
         </h1>
+        <AccountForm />
         <SignUp />
         <SignIn />
-        <div className="class-btn-google-sign-in">
-          <Signin />
-        </div>
+
         <SubscriptionBox />
       </>
     );
