@@ -1,9 +1,32 @@
-a {
-  -webkit-tap-highlight-color: transparent;
-  text-decoration: none;
+.custom-button {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  background: white;
+  color: #444;
+  width: 190px;
+  border-radius: 5px;
+  border: thin solid #888;
+  box-shadow: 1px 1px 1px grey;
+  white-space: nowrap;
 }
-
-.button {
+span.icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 42px;
+  height: 42px;
+}
+.button-text {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 42px;
+  padding-right: 42px;
+  font-size: 14px;
+  font-weight: bold;
+  /* Use the Roboto font that is loaded in the <head> */
+  font: inherit;
+}
+/* .button {
   display: inline-block;
   max-width: 200px;
   margin-top: 50px;
@@ -21,12 +44,17 @@ a {
   box-shadow: 0 1px 7px rgba(0, 0, 0, 0.05);
   font: inherit;
   outline: none;
-}
+} */
 
-.button .svgIcon {
+.button .img {
   vertical-align: middle;
   fill: rgba(0, 0, 0, 0.54);
   padding-right: 4px;
   height: 37px;
   display: inline-block;
+}
+
+.class-btn-google-sign-in {
+  text-align: center;
+  margin-top: 50px;
 }

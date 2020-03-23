@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import Home from "./components/Home/Home";
-import SideDrawer from "./components/SideDrawer/SideDrawer";
-import Toolbar from "./components/Toolbar/Toolbar";
-import Backdrop from "./components/Backdrop/Backdrop";
+import SideDrawer from "../SideDrawer/SideDrawer";
+import Toolbar from "../Toolbar/Toolbar";
+import Backdrop from "../Backdrop/Backdrop";
 
-export default class MainRouter extends Component {
+class Navbar extends Component {
   state = {
     sideDrawerOpen: false
   };
@@ -28,10 +27,11 @@ export default class MainRouter extends Component {
         <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
         <SideDrawer show={this.state.sideDrawerOpen} />
         {backdrop}
-        <main style={{ marginTop: "64px" }}>
+        {/* <main style={{ marginTop: "64px" }}>
           <Home />
-        </main>
+        </main> */}
       </div>
     );
   }
 }
+export default Navbar;
