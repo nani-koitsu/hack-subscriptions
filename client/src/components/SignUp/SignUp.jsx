@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import React, { Component } from "./node_modules/react";
+import { withRouter } from "./node_modules/react-router-dom";
 import GoogleSignin from "../Google/GoogleSignin";
 import "../Forms/Form.css";
 const emailRegex = RegExp(
@@ -22,7 +22,7 @@ const formValid = ({ formErrors, ...rest }) => {
   return valid;
 };
 
-class SignUp extends Component {
+class Signup extends Component {
   constructor(props) {
     super(props);
 
@@ -164,4 +164,4 @@ class SignUp extends Component {
   }
 }
 
-export default withRouter(SignUp);
+export default withRouter(Signup);
