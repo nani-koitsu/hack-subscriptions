@@ -1,14 +1,14 @@
 import {
   AUTH_USER_SIGN_IN_SUCCESSFUL,
   AUTH_USER_LOGOUT
-} from "../actionTypes/authUserActionType";
+} from "../actionTypes/authUserActionTypes";
 
-import setAuthToken from "../lib/Axios/setAuthToken";
-import Axios from "../lib/Axios/Axios";
+import setAuthToken from "../../lib/Axios/setAuthToken";
+import Axios from "../../lib/Axios/Axios";
 
 export const signup = userInfo => async dispatch => {
   try {
-    let success = await Axios.post("/api/users/sign-up", userInfo);
+    let success = await Axios.post("/users/sign-up", userInfo);
     return Promise.resolve(success.data.message);
   } catch (e) {
     return Promise.reject(e);

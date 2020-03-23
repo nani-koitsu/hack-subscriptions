@@ -19,6 +19,8 @@ class Landing extends Component {
           <br />
           Please sign up with your preferred account.
         </h1>
+        <SignUp />
+        <SignIn />
         <div className="class-btn-google-sign-in">
           <Signin />
         </div>

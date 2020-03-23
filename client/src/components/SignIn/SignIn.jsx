@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { signin } from "../../redux/action/authUserAction";
 class SignIn extends Component {
   componentDidMount() {
     console.log("hello from Sign IN");
@@ -17,4 +18,4 @@ const mapStateToProps = state => {
     authUser: state.authUser
   };
 };
-export default connect(mapStateToProps, { signin });
+export default connect(mapStateToProps, { signin })(SignIn);

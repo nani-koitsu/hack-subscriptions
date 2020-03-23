@@ -1,7 +1,7 @@
 import {
   AUTH_USER_SIGN_IN_SUCCESSFUL,
   AUTH_USER_LOGOUT
-} from "../actionTypes/authUserActionType";
+} from "../actionTypes/authUserActionTypes";
 import { jwtDecodeTokenAndSetUser } from "./helpers/authReducerHelper";
 
 const initialState = {

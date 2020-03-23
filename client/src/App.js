@@ -2,16 +2,21 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import AppRouter from "./AppRouter";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Spinner from "./components/Spinner/Spinner";
 import { Provider } from "react-redux";
+import store from "./redux/store/store";
 
 const App = () => (
   <>
-    <Router>
-      <Layout>
-        <AppRouter />
-      </Layout>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <React.Suspense fallback={<Spinner />}>
+          <Layout>
+            <AppRouter />
+          </Layout>
+        </React.Suspense>
+      </Router>
+    </Provider>
   </>
 );
 

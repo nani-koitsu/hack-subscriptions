@@ -3,11 +3,11 @@ import { Route, Switch } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 const Navbar = React.lazy(() => import("./components/Navbar/Navbar"));
+const SignIn = React.lazy(() => import("./components/SignIn/SignIn"));
+const SignUp = React.lazy(() => import("./components/SignUp/SignUp"));
 const Landing = React.lazy(() =>
   import("./components/containers/Landing/Landing")
 );
-const SignIn = React.lazy(() => import("./components/SignIn/SignIn"));
-const SignUp = React.lazy(() => import("./components/SignUp/SignUp"));
 const Dashboard = React.lazy(() =>
   import("./components/containers/Dashboard/Dashboard")
 );

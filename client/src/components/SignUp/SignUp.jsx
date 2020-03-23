@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 class SignUp extends Component {
   componentDidMount() {
     console.log("hello from Sign Up");
