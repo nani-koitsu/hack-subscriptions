@@ -31,8 +31,7 @@ class Signup extends Component {
     formErrors: {
       email: "",
       password: ""
-    },
-    submitted: false
+    }
   };
 
   componentDidMount() {
@@ -42,9 +41,12 @@ class Signup extends Component {
   }
   successfullySignedUp = () => {
     this.setState({
-      submitted: false,
       email: "",
-      password: ""
+      password: "",
+      formErrors: {
+        email: "",
+        password: ""
+      }
     });
   };
 
@@ -54,17 +56,15 @@ class Signup extends Component {
       email: this.state.email,
       password: this.state.password
     };
-    this.props.signup(user).then(() => {
-      this.setState({
-        email: "",
-        password: "",
-        formErrors: {
-          email: "",
-          password: ""
-        },
-        submitted: false
+    this.props
+      .signup(user)
+      .then(() => {
+        this.successfullySignedUp();
+      })
+      .catch(e => {
+        const { message } = e.response.data;
+        this.setState({ error: message });
       });
-    });
     // this.setState(
     //   {
     //     submitted: true

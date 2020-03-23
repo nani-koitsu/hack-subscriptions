@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
-const Navbar = React.lazy(() => import("./components/Navbar/Navbar"));
+// const Navbar = React.lazy(() => import("./components/Navbar/Navbar"));
 const Signin = React.lazy(() => import("./components/Signin/Signin"));
 const Signup = React.lazy(() => import("./components/Signup/Signup"));
 const Landing = React.lazy(() =>
@@ -19,8 +20,8 @@ class AppRouter extends Component {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Landing} />
-          <Route exact path="/Signup" component={Signup} />
-          <Route exact path="/Signin" component={Signin} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/signin" component={Signin} />
         </Switch>
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
       </>

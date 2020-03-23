@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Landing.css";
-import Signup from "../../Signup/Signup";
+// import Signup from "../../Signup/Signup";
 import Dashboard from "../Dashboard/Dashboard";
 import { connect } from "react-redux";
 class Landing extends Component {
@@ -12,7 +12,6 @@ class Landing extends Component {
         ) : (
           <h1 className="class-landing-h1">Want to hack your Subscriptions?</h1>
         )}
-        <Signup />
       </>
     );
   }

@@ -1,28 +1,65 @@
-import React from "react";
+import React, { Component } from "react";
+
 import "./Toolbar.css";
 import DrawerToggleButton from "../SideDrawer/DrawerToggleButton";
+import { logout } from "../../redux/action/authUserAction";
+import { connect } from "react-redux";
+import { NavLink, withRouter } from "react-router-dom";
 
-const Toolbar = props => (
-  <header className="toolbar">
-    <nav className="toolbar-navigation">
-      <div className="toolbar-toggle-button">
-        <DrawerToggleButton click={props.drawerClickHandler} />
-      </div>
-      <div className="toolbar-logo">
-        <a href="/">HACK SUBSCRIPTIONS</a>
-      </div>
-      <div className="spacer"></div>
-      <div className="toolbar-navigation-items">
-        <ul>
-          <li>
-            <a href="/">User Subsriptions</a>
-          </li>
-          <li>
-            <a href="/">Boring Stuff</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-);
-export default Toolbar;
+class Toolbar extends Component {
+  render() {
+    const { classes } = this.props;
+    let navigation;
+
+    if (this.props.authUser.isAuthenticated) {
+      console.log(this.props.authUser.user);
+      navigation = (
+        <>
+          <h1>LOGGEDIN</h1>
+        </>
+      );
+    }
+    return (
+      <header className="toolbar">
+        <nav className="toolbar-navigation">
+          <div className="toolbar-toggle-button">
+            {/* <DrawerToggleButton click={props.drawerClickHandler} /> */}
+          </div>
+          <div className="toolbar-logo">
+            <a href="/">HACK SUBSCRIPTIONS</a>
+          </div>
+          <div className="spacer"></div>
+          <div className="toolbar-navigation-items">
+            <ul>
+              <li>
+                <NavLink
+                  to="/signup"
+                  activeStyle={{ fontWeight: "bold", color: "gray" }}
+                >
+                  Sign Up
+                </NavLink>
+              </li>
+              <NavLink
+                to="/signin"
+                activeStyle={{ fontWeight: "bold", color: "gray" }}
+              >
+                Sign In
+              </NavLink>
+              <li>
+                <a href="/">Boring Stuff</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    authUser: state.authUser
+  };
+};
+
+export default connect(mapStateToProps, { logout })(withRouter(Toolbar));
