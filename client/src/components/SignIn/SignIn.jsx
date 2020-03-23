@@ -37,17 +37,17 @@ class Signin extends Component {
       this.props.history.push("/dashboard");
     }
   }
-  successfullySignedUp = () => {
-    this.setState({
-      email: "",
-      password: "",
-      formErrors: {
-        email: "",
-        password: ""
-      }
-    });
-    this.props.history.push("/dashboard");
-  };
+  // successfullySignedUp = () => {
+  //   this.setState({
+  //     email: "",
+  //     password: "",
+  //     formErrors: {
+  //       email: "",
+  //       password: ""
+  //     }
+  //   });
+  //   this.props.history.push("/dashboard");
+  // };
 
   handleSubmit = async e => {
     e.preventDefault();
@@ -57,6 +57,7 @@ class Signin extends Component {
         Email: ${this.state.email}
         Password: ${this.state.password}
       `);
+      const user =
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
@@ -64,15 +65,6 @@ class Signin extends Component {
       email: this.state.email,
       password: this.state.password
     };
-    this.props
-      .signup(user)
-      .then(() => {
-        this.successfullySignedUp();
-      })
-      .catch(e => {
-        const { message } = e.response.data;
-        this.setState({ error: message });
-      });
   };
 
   handleChange = e => {

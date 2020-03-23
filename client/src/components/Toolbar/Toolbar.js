@@ -8,7 +8,6 @@ import { NavLink, withRouter } from "react-router-dom";
 
 class Toolbar extends Component {
   render() {
-    const { classes } = this.props;
     let navigation;
 
     if (this.props.authUser.isAuthenticated) {

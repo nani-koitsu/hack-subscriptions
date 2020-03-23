@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
+import ToolBar from "./components/Toolbar/Toolbar";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 // const Navbar = React.lazy(() => import("./components/Navbar/Navbar"));
@@ -17,13 +17,13 @@ class AppRouter extends Component {
   render() {
     return (
       <>
-        <Navbar />
+        <ToolBar />
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/signin" component={Signin} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
         </Switch>
-        <PrivateRoute exact path="/dashboard" component={Dashboard} />
       </>
     );
   }

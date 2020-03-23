@@ -1,6 +1,6 @@
 import jwt_decode from "jwt-decode";
 import setAuthToken from "../Axios/setAuthToken";
-import { setAuthSuccessUser, logout } from "../../actions/authUserAction";
+import { setAuthSuccessUser, logout } from "../../redux/action/authUserAction";
 
 const checkTokenAuth = store => {
   let jwtToken = localStorage.getItem("jwtToken");
