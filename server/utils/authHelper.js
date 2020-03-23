@@ -10,7 +10,7 @@ async function hashPassword(password) {
 
 async function createUser(user) {
     let newUser = await new User({
-        username: user.username,
+        email: user.email,
         password: user.password
     });
     return newUser;
@@ -18,15 +18,15 @@ async function createUser(user) {
 
 async function errorHandler(error) {
     let errorMessage = null;
-    if (error.errmsg.includes('username_1')) {
-        errorMessage = 'Username Already Exist';
+    if (error.errmsg.includes('email_1')) {
+        errorMessage = 'Email Already Exist';
     }
     return errorMessage;
 }
 
-async function findOneUser(username) {
+async function findOneUser(email) {
     try {
-        let foundUser = await User.findOne({ username });
+        let foundUser = await User.findOne({ email });
         if (!foundUser) {
             return 404;
         }
@@ -41,7 +41,7 @@ async function createJwtToken(user) {
 
     let payload = {
         id: user._id,
-        username: user.username
+        email: user.email
     }
 
     let jwtToken = await jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 3600 });
@@ -49,8 +49,10 @@ async function createJwtToken(user) {
 }
 
 async function comparePassword(incomingPassword, userPassword) {
+    console.log(incomingPassword, userPassword);
     try {
         let comparedPassword = await bcrypt.compare(incomingPassword, userPassword);
+        console.log(comparedPassword);
         if (comparedPassword) {
             return comparedPassword
         } else {
