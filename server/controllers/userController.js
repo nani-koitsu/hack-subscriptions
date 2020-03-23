@@ -11,6 +11,7 @@ module.exports = {
             console.log(savedUser);
 
             res.status(200).json({
+                user: savedUser,
                 message: 'User Successfully created! Please Login'
             })
         } catch (error) {
