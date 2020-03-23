@@ -48,10 +48,20 @@ class Signup extends Component {
         password: ""
       }
     });
+    this.props.history.push("/dashboard");
   };
 
   handleSubmit = async e => {
     e.preventDefault();
+    if (formValid(this.state)) {
+      // console.log(`
+      //   === SUBMITTING
+      //   Email: ${this.state.email}
+      //   Password: ${this.state.password}
+      // `);
+    } else {
+      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+    }
     const user = {
       email: this.state.email,
       password: this.state.password
@@ -65,16 +75,6 @@ class Signup extends Component {
         const { message } = e.response.data;
         this.setState({ error: message });
       });
-
-    if (formValid(this.state)) {
-      // console.log(`
-      //   === SUBMITTING
-      //   Email: ${this.state.email}
-      //   Password: ${this.state.password}
-      // `);
-    } else {
-      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
-    }
   };
 
   handleChange = e => {
