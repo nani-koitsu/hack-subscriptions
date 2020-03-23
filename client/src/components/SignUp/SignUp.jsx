@@ -1,7 +1,9 @@
-import React, { Component } from "./node_modules/react";
-import { withRouter } from "./node_modules/react-router-dom";
+import React, { Component } from "react";
 import GoogleSignin from "../Google/GoogleSignin";
+import { connect } from "react-redux";
+import { signup } from "../../redux/action/authUserAction";
 import "../Forms/Form.css";
+
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
@@ -23,34 +25,61 @@ const formValid = ({ formErrors, ...rest }) => {
 };
 
 class Signup extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    email: "",
+    password: "",
+    formErrors: {
+      email: "",
+      password: ""
+    },
+    submitted: false
+  };
 
-    this.state = {
-      firstName: null,
-      lastName: null,
-      email: null,
-      password: null,
-      formErrors: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: ""
-      }
-    };
+  componentDidMount() {
+    if (this.props.authUser.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
   }
+  successfullySignedUp = () => {
+    this.setState({
+      submitted: false,
+      email: "",
+      password: ""
+    });
+  };
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
+    const user = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    this.props.signup(user).then(() => {
+      this.setState({
+        email: "",
+        password: "",
+        formErrors: {
+          email: "",
+          password: ""
+        },
+        submitted: false
+      });
+    });
+    // this.setState(
+    //   {
+    //     submitted: true
+    //   },
+    //   () => {
+    //     this.props.signup(this.state);
+    //   }
+    // );
 
     if (formValid(this.state)) {
-      console.log(`
-        --SUBMITTING--
-        First Name: ${this.state.firstName}
-        Last Name: ${this.state.lastName}
-        Email: ${this.state.email}
-        Password: ${this.state.password}
-      `);
+      // console.log(`
+      //   === SUBMITTING
+      //   Email: ${this.state.email}
+      //   Password: ${this.state.password}
+      // `);
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
@@ -62,14 +91,14 @@ class Signup extends Component {
     let formErrors = { ...this.state.formErrors };
 
     switch (name) {
-      case "firstName":
-        formErrors.firstName =
-          value.length < 3 ? "minimum 3 characaters required" : "";
-        break;
-      case "lastName":
-        formErrors.lastName =
-          value.length < 3 ? "minimum 3 characaters required" : "";
-        break;
+      // case "firstName":
+      //   formErrors.firstName =
+      //     value.length < 3 ? "minimum 3 characaters required" : "";
+      //   break;
+      // case "lastName":
+      //   formErrors.lastName =
+      //     value.length < 3 ? "minimum 3 characaters required" : "";
+      //   break;
       case "email":
         formErrors.email = emailRegex.test(value)
           ? ""
@@ -94,7 +123,7 @@ class Signup extends Component {
         <div className="form-wrapper">
           <h1>Create Account</h1>
           <form onSubmit={this.handleSubmit} noValidate>
-            <div className="firstName">
+            {/* <div className="firstName">
               <label htmlFor="firstName">First Name</label>
               <input
                 className={formErrors.firstName.length > 0 ? "error" : null}
@@ -121,7 +150,7 @@ class Signup extends Component {
               {formErrors.lastName.length > 0 && (
                 <span className="errorMessage">{formErrors.lastName}</span>
               )}
-            </div>
+            </div> */}
             <div className="email">
               <label htmlFor="email">Email</label>
               <input
@@ -163,5 +192,9 @@ class Signup extends Component {
     );
   }
 }
-
-export default withRouter(Signup);
+const mapStateToProps = state => {
+  return {
+    authUser: state.authUser
+  };
+};
+export default connect(mapStateToProps, { signup })(Signup);

@@ -3,8 +3,8 @@ import { Route, Switch } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 const Navbar = React.lazy(() => import("./components/Navbar/Navbar"));
-const SignIn = React.lazy(() => import("./components/SignIn/SignIn"));
-const SignUp = React.lazy(() => import("./components/SignUp/SignUp"));
+const Signin = React.lazy(() => import("./components/Signin/Signin"));
+const Signup = React.lazy(() => import("./components/Signup/Signup"));
 const Landing = React.lazy(() =>
   import("./components/containers/Landing/Landing")
 );
@@ -19,14 +19,10 @@ class AppRouter extends Component {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Landing} />
-          <Route exact path="/SignUp" component={SignUp} />
-          <Route exact path="/SignIn" component={SignIn} />
+          <Route exact path="/Signup" component={Signup} />
+          <Route exact path="/Signin" component={Signin} />
         </Switch>
-        <PrivateRoute
-          exact
-          path="subscription-dashboard"
-          component={Dashboard}
-        />
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
       </>
     );
   }

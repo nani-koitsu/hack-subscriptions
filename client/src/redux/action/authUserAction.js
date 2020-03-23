@@ -8,7 +8,7 @@ import Axios from "../../lib/Axios/Axios";
 
 export const signup = userInfo => async dispatch => {
   try {
-    let success = await Axios.post("/users/sign-up", userInfo);
+    let success = await Axios.post("/users/signup", userInfo);
     return Promise.resolve(success.data.message);
   } catch (e) {
     return Promise.reject(e);
