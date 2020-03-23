@@ -5,6 +5,7 @@ import AppRouter from "./AppRouter";
 import Spinner from "./components/Spinner/Spinner";
 import { Provider } from "react-redux";
 import store from "./redux/store/store";
+import checkTokenAuth from "``";
 
 const App = () => (
   <>
