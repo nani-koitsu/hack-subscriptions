@@ -65,14 +65,6 @@ class Signup extends Component {
         const { message } = e.response.data;
         this.setState({ error: message });
       });
-    // this.setState(
-    //   {
-    //     submitted: true
-    //   },
-    //   () => {
-    //     this.props.signup(this.state);
-    //   }
-    // );
 
     if (formValid(this.state)) {
       // console.log(`

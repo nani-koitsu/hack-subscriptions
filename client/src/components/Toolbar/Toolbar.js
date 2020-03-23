@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import "./Toolbar.css";
-import DrawerToggleButton from "../SideDrawer/DrawerToggleButton";
+// import DrawerToggleButton from "../SideDrawer/DrawerToggleButton";
 import { logout } from "../../redux/action/authUserAction";
 import { connect } from "react-redux";
 import { NavLink, withRouter } from "react-router-dom";
@@ -34,14 +34,22 @@ class Toolbar extends Component {
               <li>
                 <NavLink
                   to="/signup"
-                  activeStyle={{ fontWeight: "bold", color: "gray" }}
+                  activeStyle={{
+                    fontWeight: "bold",
+                    textDecorationLine: "underline",
+                    color: "orange"
+                  }}
                 >
                   Sign Up
                 </NavLink>
               </li>
               <NavLink
                 to="/signin"
-                activeStyle={{ fontWeight: "bold", color: "gray" }}
+                activeStyle={{
+                  fontWeight: "bold",
+                  textDecorationLine: "underline",
+                  color: "orange"
+                }}
               >
                 Sign In
               </NavLink>
