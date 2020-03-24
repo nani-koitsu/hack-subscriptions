@@ -1,0 +1,11 @@
+.dashboard-container {
+  margin: 150px auto 0 auto;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  justify-content: space-evenly;
+}
+.search-container {
+  margin-top: 20px;
+}

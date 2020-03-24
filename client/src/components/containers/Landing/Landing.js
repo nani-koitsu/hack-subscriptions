@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import "./Landing.css";
-// import Signup from "../../Signup/Signup";
 import Dashboard from "../Dashboard/Dashboard";
 import { connect } from "react-redux";
+import "./Landing.css";
 class Landing extends Component {
   render() {
     return (

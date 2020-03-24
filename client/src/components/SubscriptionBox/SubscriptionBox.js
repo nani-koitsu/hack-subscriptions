@@ -1,6 +1,11 @@
 import React from "react";
-// import TrackedSubscriptions from "./Subscriptions/TrackedSubscription";
+import TrackedSubscriptions from "./Subscriptions/TrackedSubscription";
 
-const subscription = props => <>{/* <TrackedSubscriptions /> */}</>;
+const subscription = props => (
+  <>
+    {" "}
+    <TrackedSubscriptions />{" "}
+  </>
+);
 
 export default subscription;

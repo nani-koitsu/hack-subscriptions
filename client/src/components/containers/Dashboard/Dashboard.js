@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { userFillInInfo } from "../../../redux/action/authUserAction";
+import SearchBar from "../../Searchbar/SearchBar";
 import "./Dashboard.css";
+import SubscriptionBox from "../../SubscriptionBox/SubscriptionBox";
 class Dashboard extends Component {
   state = {
     email: "",
@@ -13,8 +15,9 @@ class Dashboard extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Dashboard</h1>
+      <div className="dashboard-container">
+        <SearchBar />
+        <SubscriptionBox />
       </div>
     );
   }
