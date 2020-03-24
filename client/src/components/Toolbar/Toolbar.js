@@ -8,55 +8,62 @@ import { NavLink, withRouter } from "react-router-dom";
 
 class Toolbar extends Component {
   render() {
-    let navigation;
+    let navigation = null;
 
     if (this.props.authUser.isAuthenticated) {
       console.log(this.props.authUser.user);
       navigation = (
         <>
-          <h1>LOGGEDIN</h1>
+          <NavLink
+            to="/logout"
+            activeStyle={{
+              fontWeigh: "bold",
+              color: "orange",
+              textDecorationLine: "underline"
+            }}
+            onClick={this.props.logout}
+          >
+            {this.props.authUser.user.email}
+            <br />
+            Logout
+          </NavLink>
+        </>
+      );
+    } else {
+      navigation = (
+        <>
+          <NavLink
+            to="/signup"
+            activeStyle={{
+              fontWeight: "bold",
+              textDecorationLine: "underline",
+              color: "orange"
+            }}
+          >
+            Sign Up
+          </NavLink>
+          <br />
+          <NavLink
+            to="/signin"
+            activeStyle={{
+              fontWeight: "bold",
+              textDecorationLine: "underline",
+              color: "orange"
+            }}
+          >
+            Sign In
+          </NavLink>
         </>
       );
     }
     return (
       <header className="toolbar">
         <nav className="toolbar-navigation">
-          <div className="toolbar-toggle-button">
-            {/* <DrawerToggleButton click={props.drawerClickHandler} /> */}
-          </div>
           <div className="toolbar-logo">
             <a href="/">HACK SUBSCRIPTIONS</a>
           </div>
           <div className="spacer"></div>
-          <div className="toolbar-navigation-items">
-            <ul>
-              <li>
-                <NavLink
-                  to="/signup"
-                  activeStyle={{
-                    fontWeight: "bold",
-                    textDecorationLine: "underline",
-                    color: "orange"
-                  }}
-                >
-                  Sign Up
-                </NavLink>
-              </li>
-              <NavLink
-                to="/signin"
-                activeStyle={{
-                  fontWeight: "bold",
-                  textDecorationLine: "underline",
-                  color: "orange"
-                }}
-              >
-                Sign In
-              </NavLink>
-              <li>
-                <a href="/">Boring Stuff</a>
-              </li>
-            </ul>
-          </div>
+          <div className="toolbar-navigation-items">{navigation}</div>
         </nav>
       </header>
     );

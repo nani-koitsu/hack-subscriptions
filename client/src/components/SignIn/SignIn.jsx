@@ -61,9 +61,9 @@ class Signin extends Component {
           this.props.history.push("/dashboard");
         })
         .catch(e => {
-          const { message } = e.response.data;
-          this.setState({ error: message });
-          this.setState();
+          // const { message } = e.response.data;
+          // this.setState({ error: message });
+          throw new Error(e);
         });
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");

@@ -8,11 +8,14 @@ class Dashboard extends Component {
     email: "",
     subs: []
   };
+  componentDidMount() {
+    console.log(this.props.authUser);
+  }
   render() {
     return (
-      <>
+      <div>
         <h1>Dashboard</h1>
-      </>
+      </div>
     );
   }
 }
