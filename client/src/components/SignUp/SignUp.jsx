@@ -63,6 +63,7 @@ class Signup extends Component {
               password: ""
             }
           });
+          this.props.history.push("/signin");
         })
         .catch(e => {
           const { message } = e.response.data;
