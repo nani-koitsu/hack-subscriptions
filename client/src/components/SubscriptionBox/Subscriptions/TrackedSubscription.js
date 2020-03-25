@@ -1,24 +1,17 @@
 import React from "react";
 // import NetflixLogo from "../../SubscriptionLogos/Netflix.png";
 import "./Subscriptions.css";
-import editIcon from './svg/cycle.svg';
-import actionIcon from './svg/unread.svg';
+import editIcon from "./svg/cycle.svg";
+import actionIcon from "./svg/unread.svg";
 
 const trackedSubscription = props => (
   <>
     <div className="subscription-container">
       <div className="subscription-row">
         <div className="image-container">
-<<<<<<< HEAD
-          <img
-            src={require("../../../assets/img/Spotify.png")}
-            alt="Spotify"
-          ></img>
-=======
-          <img src={NetflixLogo} alt="NetflixLogo" className='sub-image'></img>
->>>>>>> 762720137673ff6ad210457c47fb09a09a595fd4
+          <img src={NetflixLogo} alt="NetflixLogo" className="sub-image"></img>
         </div>
-        <p className='sub-name'>Netflix</p>
+        <p className="sub-name">Netflix</p>
         <div className="spacer"></div>
         <div className="subscription-row-items">
           <ul>
@@ -26,11 +19,11 @@ const trackedSubscription = props => (
             <li>Renews on Mar 25 2020</li>
           </ul>
         </div>
-        <button className='sub-button'>
-          <img src={editIcon} alt='edit-button' className="button-icon" />
+        <button className="sub-button">
+          <img src={editIcon} alt="edit-button" className="button-icon" />
         </button>
-        <button className='sub-button'>
-          <img src={actionIcon} alt='action-button' className='button-icon' />
+        <button className="sub-button">
+          <img src={actionIcon} alt="action-button" className="button-icon" />
         </button>
       </div>
     </div>
