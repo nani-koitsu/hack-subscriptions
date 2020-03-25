@@ -1,5 +1,5 @@
 import React from "react";
-// import NetflixLogo from "../../SubscriptionLogos/Netflix.png";
+import NetflixLogo from "../../../assets/img/Netflix.png";
 import "./Subscriptions.css";
 import editIcon from "./svg/cycle.svg";
 import actionIcon from "./svg/unread.svg";
@@ -9,7 +9,11 @@ const trackedSubscription = props => (
     <div className="subscription-container">
       <div className="subscription-row">
         <div className="image-container">
+<<<<<<< HEAD
           <img src={NetflixLogo} alt="NetflixLogo" className="sub-image"></img>
+=======
+          <img src={NetflixLogo} alt="NetflixLogo" className='sub-image'></img>
+>>>>>>> ccadd1604a48081786707a2cdbc41863c0743237
         </div>
         <p className="sub-name">Netflix</p>
         <div className="spacer"></div>

@@ -17,7 +17,7 @@
   margin-left: 0.5rem;
 }
 .toolbar-logo a {
-  color: white;
+  color: #f1f3f4;
   text-decoration: none;
   font-size: 1.5rem;
 }
@@ -31,12 +31,41 @@
   padding: 0 0.5rem;
 }
 .toolbar-navigation-items a {
-  color: white;
   text-decoration: none;
 }
 .toolbar-navigation-items a:hover,
 .toolbar-navigation-items a:active {
-  color: orange;
+  color: #79bac1;
+}
+
+.logout-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-email {
+  color: #f1f3f4;
+}
+
+.logout {
+  color: #f1f3f4;
+  width: 10rem;
+  flex: 0 0 18%;
+  margin-left: 1rem;
+}
+
+.signin-signup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signin {
+  margin-left: 1rem;
+  color: #f1f3f4;
+}
+
+.signup {
+  color: #f1f3f4
 }
 
 .spacer {
