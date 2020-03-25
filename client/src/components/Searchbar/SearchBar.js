@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Backdrop from "../Backdrop/Backdrop";
 import "./SearchBar.css";
 
 class SearchBar extends React.Component {
@@ -21,7 +22,9 @@ class SearchBar extends React.Component {
     }
     this.setState({ searchSuggestions, text: value });
   };
-
+  handleClickedCompany = e => {
+    console.log("you clicked me");
+  };
   renderSearch() {
     const { searchSuggestions } = this.state;
     if (searchSuggestions.length === 0) {
@@ -30,11 +33,15 @@ class SearchBar extends React.Component {
     return (
       <ul>
         {searchSuggestions.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index}>
+            <img src={require(`../../assets/img/${item}.png`)}></img>
+            {item}
+          </li>
         ))}
       </ul>
     );
   }
+
   render() {
     return (
       <div className="search-container">

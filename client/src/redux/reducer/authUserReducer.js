@@ -13,7 +13,14 @@ const initialState = {
     "Hulu",
     "Youtube",
     "Pandora",
-    "Spotify"
+    "Spotify",
+    "Adobe",
+    "Amazon",
+    "AWS",
+    "Verizon",
+    "Disney",
+    "PlayStation",
+    "Xbox"
   ]
 };
 

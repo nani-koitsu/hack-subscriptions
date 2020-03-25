@@ -1,5 +1,5 @@
 import React from "react";
-import NetflixLogo from "../../SubscriptionLogos/netflix_logo.png";
+import NetflixLogo from "../../SubscriptionLogos/Netflix.png";
 import "./Subscriptions.css";
 
 const trackedSubscription = props => (
