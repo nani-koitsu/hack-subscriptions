@@ -8,10 +8,9 @@ class SearchBar extends React.Component {
     searchSuggestions: []
   };
   componentDidMount() {
-    console.log(this.props.authUser);
+    console.log("<SearchBar /> :", this.props.authUser);
   }
   handleTextOnChange = e => {
-    // console.log(this.props);
     const value = e.target.value;
     let searchSuggestions = [];
     if (value.length > 0) {
@@ -23,7 +22,9 @@ class SearchBar extends React.Component {
     this.setState({ searchSuggestions, text: value });
   };
   handleClickedCompany = e => {
-    console.log("you clicked me");
+    const value = e.target.alt;
+
+    console.log("you clicked me", value);
   };
   renderSearch() {
     const { searchSuggestions } = this.state;
@@ -33,9 +34,8 @@ class SearchBar extends React.Component {
     return (
       <ul>
         {searchSuggestions.map((item, index) => (
-          <li key={index}>
-            <img src={require(`../../assets/img/${item}.png`)} alt='logo'></img>
-            {item}
+          <li key={index} onClick={this.handleClickedCompany}>
+            <img src={require(`../../assets/img/${item}.png`)} alt={item}></img>
           </li>
         ))}
       </ul>
