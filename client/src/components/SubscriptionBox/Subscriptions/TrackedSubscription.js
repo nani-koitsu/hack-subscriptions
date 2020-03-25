@@ -1,5 +1,5 @@
 import React from "react";
-import NetflixLogo from "../../SubscriptionLogos/Netflix.png";
+import NetflixLogo from "../../../assets/img/Netflix.png";
 import "./Subscriptions.css";
 import editIcon from './svg/cycle.svg';
 import actionIcon from './svg/unread.svg';

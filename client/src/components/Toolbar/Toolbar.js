@@ -13,31 +13,35 @@ class Toolbar extends Component {
     if (this.props.authUser.isAuthenticated) {
       console.log(this.props.authUser.user);
       navigation = (
-        <>
+        <div className='logout-container'>
+          <div className="user-email">
+            {this.props.authUser.user.email}
+          </div>
           <NavLink
             to="/logout"
             activeStyle={{
-              fontWeigh: "bold",
+              fontWeight: "bold",
               color: "orange",
               textDecorationLine: "underline"
             }}
+            className="logout"
             onClick={this.props.logout}
           >
-            {this.props.authUser.user.email}
-            <br />
+            {/* <br /> */}
             Logout
           </NavLink>
-        </>
+        </div>
       );
     } else {
       navigation = (
-        <>
+        <div className='signin-signup'>
           <NavLink
             to="/signup"
+            className="signup"
             activeStyle={{
               fontWeight: "bold",
               textDecorationLine: "underline",
-              color: "orange"
+              color: '#79bac1'
             }}
           >
             Sign Up
@@ -45,15 +49,16 @@ class Toolbar extends Component {
           <br />
           <NavLink
             to="/signin"
+            className='signin'
             activeStyle={{
               fontWeight: "bold",
               textDecorationLine: "underline",
-              color: "orange"
+              color: '#79bac1'
             }}
           >
             Sign In
           </NavLink>
-        </>
+        </div>
       );
     }
     return (

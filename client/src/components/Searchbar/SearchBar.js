@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import Backdrop from "../Backdrop/Backdrop";
+// import Backdrop from "../Backdrop/Backdrop";
 import "./SearchBar.css";
 
 class SearchBar extends React.Component {
@@ -34,7 +34,7 @@ class SearchBar extends React.Component {
       <ul>
         {searchSuggestions.map((item, index) => (
           <li key={index}>
-            <img src={require(`../../assets/img/${item}.png`)}></img>
+            <img src={require(`../../assets/img/${item}.png`)} alt='logo'></img>
             {item}
           </li>
         ))}
