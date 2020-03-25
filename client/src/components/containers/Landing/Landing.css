@@ -1,5 +1,9 @@
 .landing-container {
-  height: 100vh;
+  position: absolute;
+  top: 56px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .class-landing-h1 {

@@ -32,10 +32,10 @@ class SearchBar extends React.Component {
       return null;
     }
     return (
-      <ul>
+      <ul className='sub-list'>
         {searchSuggestions.map((item, index) => (
-          <li key={index} onClick={this.handleClickedCompany}>
-            <img src={require(`../../assets/img/${item}.png`)} alt={item}></img>
+          <li className='sub-item' key={index} onClick={this.handleClickedCompany}>
+            <img className="search-image" src={require(`../../assets/img/${item}.png`)} alt={item}></img>
           </li>
         ))}
       </ul>
@@ -44,13 +44,16 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div className="search-container">
+      <div className='search-container'>
         <input
           onChange={this.handleTextOnChange}
           type="text"
           placeholder="Subscription Name"
+          className='input-field'
         />
-        {this.renderSearch()}
+        <div>
+          {this.renderSearch()}
+        </div>
       </div>
     );
   }
