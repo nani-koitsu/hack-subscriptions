@@ -15,7 +15,7 @@ const initialState = {
     "Pandora",
     "Spotify",
     "Adobe",
-    "Amazon",
+
     "AWS",
     "Verizon",
     "Disney",

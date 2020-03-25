@@ -1,5 +1,5 @@
 import React from "react";
-import NetflixLogo from "../../SubscriptionLogos/Netflix.png";
+// import NetflixLogo from "../../SubscriptionLogos/Netflix.png";
 import "./Subscriptions.css";
 
 const trackedSubscription = props => (
@@ -7,7 +7,10 @@ const trackedSubscription = props => (
     <div className="subscription-container">
       <div className="subscription-row">
         <div className="image-container">
-          <img src={NetflixLogo} alt="NetflixLogo"></img>
+          <img
+            src={require("../../../assets/img/Spotify.png")}
+            alt="Spotify"
+          ></img>
         </div>
         <div className="spacer"></div>
         <div className="subscription-row-items">
