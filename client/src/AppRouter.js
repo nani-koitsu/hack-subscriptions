@@ -4,8 +4,8 @@ import ToolBar from "./components/Toolbar/Toolbar";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 // const Navbar = React.lazy(() => import("./components/Navbar/Navbar"));
-const Signin = React.lazy(() => import("./components/Signin/SignIn"));
-const Signup = React.lazy(() => import("./components/Signup/SignUp"));
+const Signin = React.lazy(() => import("./components/Signin/Signin"));
+const Signup = React.lazy(() => import("./components/Signup/Signup"));
 const Landing = React.lazy(() =>
   import("./components/containers/Landing/Landing")
 );

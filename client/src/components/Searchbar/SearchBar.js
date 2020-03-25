@@ -1,15 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
-// import Backdrop from "../Backdrop/Backdrop";
+import {
+  showModal,
+  hideModal,
+  selectSearchResult
+} from "../../redux/action/authUserModalAction";
+
 import "./SearchBar.css";
 
 class SearchBar extends React.Component {
   state = {
-    searchSuggestions: []
+    searchSuggestions: [],
+    isSelected: false,
+    selected: ""
   };
+
   componentDidMount() {
-    console.log("<SearchBar /> :", this.props.authUser);
+    if (!this.props.authUser.isAuthenticated) {
+      this.props.history.push("/signin");
+    }
   }
+
   handleTextOnChange = e => {
     const value = e.target.value;
     let searchSuggestions = [];
@@ -21,21 +32,44 @@ class SearchBar extends React.Component {
     }
     this.setState({ searchSuggestions, text: value });
   };
-  handleClickedCompany = e => {
+
+  handleOnClick = e => {
     const value = e.target.alt;
 
-    console.log("you clicked me", value);
+    this.setState({
+      isSelected: true,
+      selected: value
+    });
+
+    this.props.showModal({
+      open: true,
+      selectedModal: "Selected Search"
+    });
+
+    console.log(this.state);
   };
+
+  openModal = () => {
+    this.props.showModal({
+      open: true,
+      selectedModal: "Selected Search"
+    });
+  };
+
   renderSearch() {
     const { searchSuggestions } = this.state;
     if (searchSuggestions.length === 0) {
       return null;
     }
     return (
-      <ul className='sub-list'>
+      <ul className="sub-list">
         {searchSuggestions.map((item, index) => (
-          <li className='sub-item' key={index} onClick={this.handleClickedCompany}>
-            <img className="search-image" src={require(`../../assets/img/${item}.png`)} alt={item}></img>
+          <li className="sub-item" key={index} onClick={this.handleOnClick}>
+            <img
+              className="search-image"
+              src={require(`../../assets/img/${item}.png`)}
+              alt={item}
+            ></img>
           </li>
         ))}
       </ul>
@@ -44,23 +78,26 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div className='search-container'>
+      <div className="search-container">
         <input
           onChange={this.handleTextOnChange}
-          type="text"
           placeholder="Subscription Name"
-          className='input-field'
+          type="text"
+          className="input-field"
         />
-        <div>
-          {this.renderSearch()}
-        </div>
+        <div>{this.renderSearch()}</div>
       </div>
     );
   }
 }
 const mapStateToProps = state => {
   return {
-    authUser: state.authUser
+    authUser: state.authUser,
+    modal: state.modal
   };
 };
-export default connect(mapStateToProps, {})(SearchBar);
+export default connect(mapStateToProps, {
+  showModal,
+  hideModal,
+  selectSearchResult
+})(SearchBar);

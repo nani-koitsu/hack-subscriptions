@@ -7,6 +7,7 @@ import { jwtDecodeTokenAndSetUser } from "./helpers/authReducerHelper";
 const initialState = {
   isAuthenticated: false,
   user: null,
+  selectedSearch: "",
   subscriptionsList: [
     "Netflix",
     "ESPN",
