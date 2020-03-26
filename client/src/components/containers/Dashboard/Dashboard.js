@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import SearchBar from "../../Searchbar/SearchBar";
 import "./Dashboard.css";
 import SubscriptionBox from "../../SubscriptionBox/SubscriptionBox";
-import ModalContainer from "../Modal/ModalContainer";
+
 class Dashboard extends Component {
   state = {
     email: "",
@@ -27,7 +27,6 @@ class Dashboard extends Component {
         )}
         <SearchBar />
         <SubscriptionBox />
-        <ModalContainer />
       </div>
     );
   }

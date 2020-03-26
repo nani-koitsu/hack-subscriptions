@@ -1,13 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./SearchBar.css";
-// import SearchForm from './SearchForm';
-
+import ModalContainer from "../containers/Modal/ModalContainer";
 class SearchBar extends React.Component {
   state = {
     searchSuggestions: [],
     isSelected: false,
-    selected: ""
+    selected: "",
+    isOpen: false,
+    info: null
   };
 
   componentDidMount() {
@@ -28,14 +29,15 @@ class SearchBar extends React.Component {
     this.setState({ searchSuggestions, text: value });
   };
 
-  handleOnClick = e => {
-    const value = e.target.innerText;
-    console.log(value);
-    this.setState({
-      isSelected: true,
-      selected: value
-    });
-    console.log(this.state)
+  handleOnClick = info => {
+
+    this.openModalHandler(info);
+    // const value = e.target.alt;
+    // console.log(value);
+    // this.setState({
+    //   isSelected: true,
+    //   selected: value
+    // });
   };
 
   renderSearch = () => {
@@ -46,11 +48,12 @@ class SearchBar extends React.Component {
     return (
       <ul className="sub-list">
         {searchSuggestions.map((item, index) => (
-          <li className="sub-item" key={index} onClick={this.handleOnClick}>
+          <li className="sub-item" key={index} onClick={() => this.handleOnClick({name: item, picture: `../../assets/img/${item}.png`})}>
             <img
               className="search-image"
               src={require(`../../assets/img/${item}.png`)}
               alt={item}
+           
             ></img>
             <p className="search-button">{item}</p>
           </li>
@@ -58,6 +61,20 @@ class SearchBar extends React.Component {
       </ul>
     );
   };
+
+  openModalHandler = (info) => {
+    this.setState({
+      isOpen: !this.state.isOpen,
+      info: info
+    })
+   };
+ 
+    closeModalHandler = () => {
+     this.setState({
+       isOpen: !this.state.isOpen,
+       info: ''
+     })
+   };
 
   render() {
     return (
@@ -70,6 +87,12 @@ class SearchBar extends React.Component {
         />
 
         {this.renderSearch()}
+        <ModalContainer 
+          openModalHandler={this.openModalHandler}
+          isOpen={this.state.isOpen}
+          closeModalHandler={this.closeModalHandler}
+          info={this.state.info}
+        />
       </div>
     );
   }
