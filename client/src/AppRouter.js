@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import ToolBar from "./components/Toolbar/Toolbar";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
-// const Navbar = React.lazy(() => import("./components/Navbar/Navbar"));
 const Signin = React.lazy(() => import("./components/Signin/Signin"));
 const Signup = React.lazy(() => import("./components/Signup/Signup"));
 const Landing = React.lazy(() =>
@@ -29,34 +28,3 @@ class AppRouter extends Component {
   }
 }
 export default AppRouter;
-// export default class AppRouter extends Component {
-//   state = {
-//     sideDrawerOpen: false
-//   };
-
-//   drawerToggleClickHandler = () => {
-//     this.setState(prevState => {
-//       return { sideDrawerOpen: !prevState.sideDrawerOpen };
-//     });
-//   };
-//   backdropClickHandler = () => {
-//     this.setState({ sideDrawerOpen: false });
-//   };
-//   render() {
-//     let backdrop;
-//     if (this.state.sideDrawerOpen) {
-//       backdrop = <Backdrop click={this.backdropClickHandler} />;
-//     }
-
-//     return (
-//       <div style={{ height: "100%" }}>
-//         <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
-//         <SideDrawer show={this.state.sideDrawerOpen} />
-//         {backdrop}
-//         <main style={{ marginTop: "64px" }}>
-//           <Home />
-//         </main>
-//       </div>
-//     );
-//   }
-// }

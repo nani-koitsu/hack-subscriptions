@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import SearchBar from "../../Searchbar/SearchBar";
 import "./Dashboard.css";
 import SubscriptionBox from "../../SubscriptionBox/SubscriptionBox";
-
+import ModalContainer from "../Modal/ModalContainer";
 class Dashboard extends Component {
   state = {
     email: "",
@@ -21,16 +21,13 @@ class Dashboard extends Component {
     return (
       <div className="dashboard-container">
         {this.props.authUser.isAuthenticated ? (
-          <>
-            <li onClick={this.openSelectedSubscription}>Hero Actions</li>
-
-            {/* <ModalContainer hideModal={this.props.hideModal} /> */}
-          </>
+          <>{/* <ModalContainer hideModal={this.props.hideModal} /> */}</>
         ) : (
           <Redirect to="/signin" />
         )}
         <SearchBar />
         <SubscriptionBox />
+        <ModalContainer />
       </div>
     );
   }

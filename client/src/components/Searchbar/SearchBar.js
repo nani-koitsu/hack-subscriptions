@@ -36,7 +36,7 @@ class SearchBar extends React.Component {
     });
   };
 
-  renderSearch() {
+  renderSearch = () => {
     const { searchSuggestions } = this.state;
     if (searchSuggestions.length === 0) {
       return null;
@@ -54,7 +54,7 @@ class SearchBar extends React.Component {
         ))}
       </ul>
     );
-  }
+  };
 
   render() {
     return (
@@ -65,7 +65,8 @@ class SearchBar extends React.Component {
           type="text"
           className="input-field"
         />
-        <div>{this.renderSearch()}</div>
+
+        {this.renderSearch()}
       </div>
     );
   }
