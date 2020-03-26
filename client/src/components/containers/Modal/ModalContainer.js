@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
-import SearchBarModal from "./SearchBarModal";
+// import SearchBarModal from "./SearchBarModal";
 const customStyles = {
   content: {
     top: "50%",

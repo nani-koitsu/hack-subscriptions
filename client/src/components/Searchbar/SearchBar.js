@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./SearchBar.css";
+// import SearchForm from './SearchForm';
 
 class SearchBar extends React.Component {
   state = {
@@ -28,12 +29,13 @@ class SearchBar extends React.Component {
   };
 
   handleOnClick = e => {
-    const value = e.target.alt;
+    const value = e.target.innerText;
     console.log(value);
     this.setState({
       isSelected: true,
       selected: value
     });
+    console.log(this.state)
   };
 
   renderSearch = () => {
@@ -50,6 +52,7 @@ class SearchBar extends React.Component {
               src={require(`../../assets/img/${item}.png`)}
               alt={item}
             ></img>
+            <p className="search-button">{item}</p>
           </li>
         ))}
       </ul>

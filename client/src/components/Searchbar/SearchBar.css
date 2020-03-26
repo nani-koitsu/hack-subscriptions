@@ -27,7 +27,7 @@
   margin: 0;
   padding: 0;
   border: 1px gray solid;
-  background-color: orange;
+  background-color: #f1f3f4;
 }
 
 .sub-item:not(:last-child) {
@@ -38,12 +38,14 @@
   padding: 10px 5px;
   cursor: pointer;
   height: 2rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .sub-list li:hover {
-  color: green;
+  color: #f1f3f4;
   text-decoration: underline;
-  background-color:orange;
+  background-color: #79bac1;
 }
 
 .sub-list::before {
