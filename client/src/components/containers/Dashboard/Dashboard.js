@@ -1,14 +1,9 @@
 import React, { Component } from "react";
 import { withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import {
-  showModal,
-  hideModal
-} from "../../../redux/action/authUserModalAction";
 import SearchBar from "../../Searchbar/SearchBar";
 import "./Dashboard.css";
 import SubscriptionBox from "../../SubscriptionBox/SubscriptionBox";
-import ModalContainer from "../../Modal/ModalContainer";
 
 class Dashboard extends Component {
   state = {
@@ -21,12 +16,7 @@ class Dashboard extends Component {
     }
     console.log(`dashboard : `, this.props.authUser);
   }
-  openSelectedSubscription = () => {
-    this.props.showModal({
-      open: true,
-      selectedModal: `Selected Search`
-    });
-  };
+  openSelectedSubscription = () => {};
   render() {
     return (
       <div className="dashboard-container">
@@ -34,7 +24,7 @@ class Dashboard extends Component {
           <>
             <li onClick={this.openSelectedSubscription}>Hero Actions</li>
 
-            <ModalContainer hideModal={this.props.hideModal} />
+            {/* <ModalContainer hideModal={this.props.hideModal} /> */}
           </>
         ) : (
           <Redirect to="/signin" />
@@ -47,10 +37,7 @@ class Dashboard extends Component {
 }
 const mapStateToProps = state => {
   return {
-    authUser: state.authUser,
-    modal: state.modal
+    authUser: state.authUser
   };
 };
-export default connect(mapStateToProps, { showModal, hideModal })(
-  withRouter(Dashboard)
-);
+export default connect(mapStateToProps, null)(withRouter(Dashboard));

@@ -1,11 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import {
-  showModal,
-  hideModal,
-  selectSearchResult
-} from "../../redux/action/authUserModalAction";
-
 import "./SearchBar.css";
 
 class SearchBar extends React.Component {
@@ -35,24 +29,10 @@ class SearchBar extends React.Component {
 
   handleOnClick = e => {
     const value = e.target.alt;
-
+    console.log(value);
     this.setState({
       isSelected: true,
       selected: value
-    });
-
-    this.props.showModal({
-      open: true,
-      selectedModal: "Selected Search"
-    });
-
-    console.log(this.state);
-  };
-
-  openModal = () => {
-    this.props.showModal({
-      open: true,
-      selectedModal: "Selected Search"
     });
   };
 
@@ -92,12 +72,7 @@ class SearchBar extends React.Component {
 }
 const mapStateToProps = state => {
   return {
-    authUser: state.authUser,
-    modal: state.modal
+    authUser: state.authUser
   };
 };
-export default connect(mapStateToProps, {
-  showModal,
-  hideModal,
-  selectSearchResult
-})(SearchBar);
+export default connect(mapStateToProps, {})(SearchBar);
