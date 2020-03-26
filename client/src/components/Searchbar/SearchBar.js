@@ -55,6 +55,7 @@ class SearchBar extends React.Component {
               alt={item}
            
             ></img>
+            <p className="search-button">{item}</p>
           </li>
         ))}
       </ul>
